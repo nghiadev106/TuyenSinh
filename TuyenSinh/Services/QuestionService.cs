@@ -40,7 +40,6 @@ namespace TuyenSinh.Services
 
         public async Task<List<QuestionViewModel>> GetAll()
         {
-
             return await _context.Questions.Select(p => new QuestionViewModel()
             {
                 Id = p.Id,

@@ -31,6 +31,7 @@ namespace TuyenSinh.Models
         public int? AbilityId { get; set; }
         public int? ConductId { get; set; }
         public double? Point { get; set; }
+        public int? YearGraduation { get; set; }
         public string Sbd { get; set; }
         public string Hsddkxt { get; set; }
         public double? Math { get; set; }

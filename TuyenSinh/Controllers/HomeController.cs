@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 using TuyenSinh.Model;
 
@@ -30,6 +32,18 @@ namespace TuyenSinh.Controllers
         public IActionResult Contact()
         {
             return View();
+        }
+
+        public async Task<IActionResult> GetDistrict(int id)
+        {
+            var district = await _context.Districts.Where(x=>x.ProvinceId==id).ToListAsync();
+            return Ok(district);
+        }
+
+        public async Task<IActionResult> GetWard(int id)
+        {
+            var ward = await _context.Wards.Where(x => x.DistrictId == id).ToListAsync();
+            return Ok(ward);
         }
     }
 }

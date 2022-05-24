@@ -4,6 +4,47 @@
     ViewData["Title"] = "DangKyHocBa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<script type="text/javascript" charset="utf-8">
+                    $(document).ready(function () {
+                        $("#province").on("change", function () {
+                            var id = $("#province").val();
+                            $.ajax({
+                                url: "/get-district",
+                                type: "GET",
+                                data: { id: id },
+                                success: function (result) {
+                                    $("#district").html($('<option/>', { value: 0, text: '[Chọn Quận/Huyện]' }));
+                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
+                                    $.each(result, function (i, item) {
+                                        $("#district").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                                    });
+                                },
+                                error: function (e) {
+                                    alert(e);
+                                }
+                            });
+                        });
+
+                        $("#district").on("change", function () {
+                            var id = $("#district").val();
+                            $.ajax({
+                                url: "/get-ward",
+                                type: "GET",
+                                data: { id: id },
+                                success: function (result) {
+                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
+                                    $.each(result, function (i, item) {
+                                        $("#ward").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                                    });
+                                },
+                                error: function (e) {
+                                    alert(e);
+                                }
+                            });
+                        });
+                    });
+</script>
 <div id="toTop"></div>
 <h3 style="text-align:center;color:blue;">
     ĐĂNG KÝ XÉT TUYỂN ĐẠI HỌC HỆ CHÍNH QUY NĂM 2022 <br /> BẰNG KẾT QUẢ HỌC TẬP THPT (HỌC BẠ THPT) <br />
@@ -41,8 +82,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Dân tộc</label>
-                                <input asp-for="NationId" type="number" class="form-control" />
+                                <label class="control-label">Dân tộc:</label><br />
+                                <select asp-for="NationId" class="form-control" asp-items="ViewBag.nationList"></select>
                                 <span asp-validation-for="NationId" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -63,12 +104,8 @@
                                 <input asp-for="ProvinceId" class="form-control" type="text" />
                                 <span asp-validation-for="ProvinceId" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <input type="submit" value="Tạo mới" class="btn btn-primary" />
-                            </div>
-
                         </div>
-                        <div class="col-12 col-md-12"><h3>Thông tin liên hệ</h3></div>
+                        <div class="col-12 col-md-12"><h4>Thông tin liên hệ</h4></div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Họ và tên</label>
@@ -101,11 +138,12 @@
 
                             </div>
                         </div>
-                        <div class="col-12 col-md-12"><h3 style="color:red;">2. Thông tin cá nhân</h3></div>
+
+                        <div class="col-12 col-md-12"><h3 style="color:red;">2. Thông tin THPT hoặc tương đương</h3></div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 10:</label>
-                                <input asp-for="Province10Id" id="txtName" class="form-control" />
+                                <input asp-for="Province10Id" class="form-control" />
                                 <span asp-validation-for="Province10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -120,45 +158,191 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label">Địa chỉ</label>
-                                <input asp-for="Phone" class="form-control" />
-                                <span asp-validation-for="Address" class="text-danger"></span>
+                                <label class="control-label">Năm tốt nghiệp</label>
+                                <input asp-for="YearGraduation" class="form-control" />
+                                <span asp-validation-for="YearGraduation" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Điểm tốt nghiệp</label>
+                                <input asp-for="Point" class="form-control" />
+                                <span asp-validation-for="Point" class="text-danger"></span>
+                            </div> <div class="form-group">
+                                <label class="control-label">SBD kỳ thi THPT</label>
+                                <input asp-for="Sbd" class="form-control" />
+                                <span asp-validation-for="Sbd" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Dân tộc</label>
-                                <input asp-for="NationId" type="number" class="form-control" />
-                                <span asp-validation-for="NationId" class="text-danger"></span>
+                                <label class="control-label">Mã trường lớp 10: *</label>
+                                <input asp-for="School10Id" type="number" class="form-control" />
+                                <span asp-validation-for="School10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Giới tính</label>
-                                <select class="form-control" asp-for="Gender">
+                                <label for="exampleInputEmail1">Mã trường lớp 11: *</label>
+                                <select class="form-control" asp-for="School11Id">
                                     <option value="1" selected>Nam</option>
                                     <option value="0">Nữ</option>
                                 </select>
 
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Số CMND/CCCD: </label>
-                                <input asp-for="Cmnd" type="text" class="form-control" />
-                                <span asp-validation-for="Cmnd" class="text-danger"></span>
+                                <label class="control-label">Mã trường lớp 12: * </label>
+                                <input asp-for="School12Id" type="text" class="form-control" />
+                                <span asp-validation-for="School12Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label>Tỉnh/thành phố:  </label>
-                                <input asp-for="ProvinceId" class="form-control" type="text" />
-                                <span asp-validation-for="ProvinceId" class="text-danger"></span>
+                                <label>Học lực:  </label>
+                                <input asp-for="AbilityId" class="form-control" type="text" />
+                                <span asp-validation-for="AbilityId" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                <label>Hạnh kiểm:  </label>
+                                <input asp-for="ConductId" class="form-control" type="text" />
+                                <span asp-validation-for="ConductId" class="text-danger"></span>
                             </div>
 
                         </div>
+                        <div class="col-12 col-md-12"><h3 style="color:red;">3. ĐIỂM TỔNG KẾT CÁC MÔN Ở BẬC THPT LỚP 12 (Thí sinh chỉ cần ghi các điểm thuộc tổ hợp xét tuyển mà mình lựa chọn)</h3></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">TB môn toán:</label>
+                                <input asp-for="Math" class="form-control" />
+                                <span asp-validation-for="Math" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">TB môn văn:</label>
+                                <input asp-for="Literature" class="form-control" />
+                                <span asp-validation-for="Literature" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">TB môn anh:</label>
+                                <input asp-for="English" class="form-control" />
+                                <span asp-validation-for="English" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">TB môn lý</label>
+                                <input asp-for="Physics" class="form-control" />
+                                <span asp-validation-for="Physics" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">TB môn hóa</label>
+                                <input asp-for="Chemistry" class="form-control" />
+                                <span asp-validation-for="Chemistry" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">TB môn sinh</label>
+                                <input asp-for="Biology" class="form-control" />
+                                <span asp-validation-for="Biology" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">TB môn sử</label>
+                                <input asp-for="History" type="number" class="form-control" />
+                                <span asp-validation-for="History" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">TB môn địa</label>
+                                <input asp-for="Geography" type="number" class="form-control" />
+                                <span asp-validation-for="Geography" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-12"><h4>File đính kèm hồ sơ THPT</h4></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Học bạ THPT: *</label>
+                                <input asp-for="ScoreCard" type="file" class="form-control" />
+                                <span asp-validation-for="ScoreCard" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Bằng tốt nghiệp/giấy CNTN: *</label>
+                                <input asp-for="Graduation" type="file" class="form-control" />
+                                <span asp-validation-for="Graduation" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-12"><h3 style="color:red;">4. THÔNG TIN ĐĂNG KÝ XÉT TUYỂN (Thí sinh phải tính điểm TBM học kỳ các môn ở bậc THPT trước khi chọn nguyện vọng)</h3></div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Nguyện vọng 1: * </label>
+                                <input name="nv1" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Nguyện vọng 2: * </label>
+                                <input name="nv2" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Mã ngành:</label>
+                                <select class="form-control" asp-for="Major1Id">
+                                    <option value="1" selected>Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                                <span asp-validation-for="Major1Id" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Mã ngành:</label>
+                                <select class="form-control" asp-for="Major2Id">
+                                    <option value="1" selected>Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                                <span asp-validation-for="Major2Id" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">
+                                    Tổ hợp:
+                                </label>
+                                <select class="form-control" asp-for="Combination1Id">
+                                    <option value="1" selected>Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                                <span asp-validation-for="Combination1Id" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Tổ hợp:
+                                </label>
+                                <select class="form-control" asp-for="Combination2Id">
+                                    <option value="1" selected>Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                                <span asp-validation-for="Combination2Id" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Tổng điểm: </label>
+                                <input name="nv1" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tổng điểm: </label>
+                                <input name="nv2" class="form-control" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-md-12">
+                            <div class="form-group" style="display: flex; align-items: center; justify-content: center; margin-top: 25px; }">
+                                <input type="submit" value="Đăng ký" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <br />
+                            <p style="text-align:match-parent;font-weight:bold">Tôi xin cam đoan những lời khai trong Phiếu ĐKXT này là đúng sự thật. Nếu sai, tôi xin chịu xử lý theo Quy chế Tuyển sinh đại học hệ chính quy hiện hành của Bộ Giáo dục và Đào tạo.</p>
+                            <br />
+                        </div>
+
                     </div>
                 </form>
-                <br />
-                <p style="text-align:match-parent;font-weight:bold">Tôi xin cam đoan những lời khai trong Phiếu ĐKXT này là đúng sự thật. Nếu sai, tôi xin chịu xử lý theo Quy chế Tuyển sinh đại học hệ chính quy hiện hành của Bộ Giáo dục và Đào tạo.</p>
-                <br />
+
             </div>
         </div>
     </div>

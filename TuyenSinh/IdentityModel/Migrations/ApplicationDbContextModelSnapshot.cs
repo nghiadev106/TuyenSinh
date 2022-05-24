@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
-using TuyenSinh.Models;
+using TuyenSinh.IdentityModel;
 
 namespace TuyenSinh.Model.Migrations
 {

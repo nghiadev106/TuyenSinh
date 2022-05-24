@@ -29,6 +29,7 @@ namespace TuyenSinh.Model
         public int? Cmnd { get; set; }
         public int? ProvinceId { get; set; }
 
+        public virtual Nation Nation { get; set; }
         public virtual ICollection<ContactInfo> ContactInfos { get; set; }
         public virtual ICollection<InfoThpt> InfoThpts { get; set; }
         public virtual ICollection<Wish> Wishes { get; set; }

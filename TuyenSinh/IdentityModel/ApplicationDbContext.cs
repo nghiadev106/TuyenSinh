@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace TuyenSinh.Model
+namespace TuyenSinh.IdentityModel
 {
     public class ApplicationDbContext : IdentityDbContext
     {

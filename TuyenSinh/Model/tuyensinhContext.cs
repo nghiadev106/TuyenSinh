@@ -32,11 +32,13 @@ namespace TuyenSinh.Model
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<InfoThpt> InfoThpts { get; set; }
         public virtual DbSet<Major> Majors { get; set; }
+        public virtual DbSet<Nation> Nations { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<School> Schools { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<SubjectTo> SubjectTos { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
         public virtual DbSet<Wish> Wishes { get; set; }
 
@@ -44,8 +46,7 @@ namespace TuyenSinh.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=tuyensinh;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-7G2VCHR;Database=tuyensinh;Trusted_Connection=True;");
             }
         }
 
@@ -178,6 +179,11 @@ namespace TuyenSinh.Model
                     .WithMany(p => p.ContactInfos)
                     .HasForeignKey(d => d.StudentId)
                     .HasConstraintName("FK_ContactInfo_Student");
+
+                entity.HasOne(d => d.SubjectTo)
+                    .WithMany(p => p.ContactInfos)
+                    .HasForeignKey(d => d.SubjectToId)
+                    .HasConstraintName("FK_ContactInfo_SubjectTo");
             });
 
             modelBuilder.Entity<District>(entity =>
@@ -248,6 +254,13 @@ namespace TuyenSinh.Model
                 entity.Property(e => e.EditDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Name).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<Nation>(entity =>
+            {
+                entity.ToTable("Nation");
+
+                entity.Property(e => e.Name).HasMaxLength(250);
             });
 
             modelBuilder.Entity<News>(entity =>
@@ -333,6 +346,18 @@ namespace TuyenSinh.Model
                     .IsRequired()
                     .HasMaxLength(11)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Nation)
+                    .WithMany(p => p.Students)
+                    .HasForeignKey(d => d.NationId)
+                    .HasConstraintName("FK_Student_Nation");
+            });
+
+            modelBuilder.Entity<SubjectTo>(entity =>
+            {
+                entity.ToTable("SubjectTo");
+
+                entity.Property(e => e.Name).HasMaxLength(250);
             });
 
             modelBuilder.Entity<Ward>(entity =>
