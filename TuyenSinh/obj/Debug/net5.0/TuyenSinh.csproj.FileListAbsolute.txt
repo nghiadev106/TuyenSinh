@@ -858,7 +858,6 @@ D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\bin\Debug\net5.0\runtimes\win
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.csprojAssemblyReference.cache
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.GeneratedMSBuildEditorConfig.editorconfig
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.AssemblyInfoInputs.cache
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.AssemblyInfo.cs
@@ -888,7 +887,6 @@ D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutAdmin.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\Login.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
-D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Blogs\DetailBlog.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Blogs\ListBlogCategories.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Blogs\ListBlogs.cshtml.g.cs
@@ -1360,3 +1358,4 @@ D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.dll
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\ref\TuyenSinh.dll
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.pdb
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.genruntimeconfig.cache
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.csprojAssemblyReference.cache

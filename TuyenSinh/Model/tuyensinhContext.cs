@@ -46,7 +46,7 @@ namespace TuyenSinh.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-7G2VCHR;Database=tuyensinh;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB;Database=tuyensinh;Trusted_Connection=True;");
             }
         }
 
@@ -153,9 +153,7 @@ namespace TuyenSinh.Model
             {
                 entity.ToTable("Combination");
 
-                entity.Property(e => e.Name)
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                entity.Property(e => e.Name).HasMaxLength(250);
             });
 
             modelBuilder.Entity<Conduct>(entity =>

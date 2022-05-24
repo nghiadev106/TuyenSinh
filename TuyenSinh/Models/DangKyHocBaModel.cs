@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,6 +58,9 @@ namespace TuyenSinh.Models
         public int? Combination2Id { get; set; }
         public double? Point1 { get; set; }
         public double? Point2 { get; set; }
+
+        public IFormFile GraduationFile { get; set; }
+        public IFormFile ScoreCardFile { get; set; }
 
     }
 }

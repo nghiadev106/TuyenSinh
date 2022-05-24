@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DA\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj": {}
+    "D:\\nghia\\DoAnTotNghiep2022\\Mai\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj": {}
   },
   "projects": {
-    "D:\\DA\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj": {
+    "D:\\nghia\\DoAnTotNghiep2022\\Mai\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DA\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj",
+        "projectUniqueName": "D:\\nghia\\DoAnTotNghiep2022\\Mai\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj",
         "projectName": "TuyenSinh",
-        "projectPath": "D:\\DA\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj",
-        "packagesPath": "C:\\Users\\DreamStore\\.nuget\\packages\\",
-        "outputPath": "D:\\DA\\TuyenSinh\\TuyenSinh\\obj\\",
+        "projectPath": "D:\\nghia\\DoAnTotNghiep2022\\Mai\\TuyenSinh\\TuyenSinh\\TuyenSinh.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\nghia\\DoAnTotNghiep2022\\Mai\\TuyenSinh\\TuyenSinh\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DreamStore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -53,14 +53,14 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="panel">
             <div class="panel-body">
-                <form asp-action="Create" asp-controller="Question" asp-area="Admin" enctype="multipart/form-data" method="post">
+                <form asp-action="DangKyHocBa" asp-controller="DangKy" enctype="multipart/form-data" method="post">
                     <div class="row">
                         <div class="col-12 col-md-12"><h3 style="color:red;">1. Thông tin cá nhân</h3></div>
                         <div class="col-md-6">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
                                 <label class="control-label">Họ và tên</label>
-                                <input asp-for="Name" id="txtName" class="form-control" />
+                                <input asp-for="Name" class="form-control" />
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -75,8 +75,14 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="control-label">Ngày sinh</label>
+                                <input asp-for="Dob" type="datetime-local" class="form-control" />
+                                <span asp-validation-for="Dob" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Địa chỉ</label>
-                                <input asp-for="Phone" class="form-control" />
+                                <input asp-for="Address" class="form-control" />
                                 <span asp-validation-for="Address" class="text-danger"></span>
                             </div>
                         </div>
@@ -101,7 +107,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tỉnh/thành phố:  </label>
-                                <input asp-for="ProvinceId" class="form-control" type="text" />
+                                <select asp-for="ProvinceId" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="ProvinceId" class="text-danger"></span>
                             </div>
                         </div>
@@ -131,11 +137,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Đối tượng</label>
-                                <select class="form-control" asp-for="ContactSubjectTo">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
-
+                                <select asp-for="ContactSubjectTo" class="form-control" asp-items="ViewBag.subjectList"></select>
+                                <span asp-validation-for="ContactSubjectTo" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -143,17 +146,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 10:</label>
-                                <input asp-for="Province10Id" class="form-control" />
+                                <select asp-for="Province10Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 11:</label>
-                                <input asp-for="Province11Id" class="form-control" />
+                                <select asp-for="Province11Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 12:</label>
-                                <input asp-for="Province12Id" class="form-control" />
+                                <select asp-for="Province12Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province12Id" class="text-danger"></span>
                             </div>
 
@@ -175,30 +178,27 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 10: *</label>
-                                <input asp-for="School10Id" type="number" class="form-control" />
+                                <select asp-for="School10Id" class="form-control" asp-items="ViewBag.schoolList"></select>
                                 <span asp-validation-for="School10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mã trường lớp 11: *</label>
-                                <select class="form-control" asp-for="School11Id">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
-
+                                <select asp-for="School11Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <span asp-validation-for="School11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 12: * </label>
-                                <input asp-for="School12Id" type="text" class="form-control" />
+                                <select asp-for="School12Id" class="form-control" asp-items="ViewBag.schoolList"></select>
                                 <span asp-validation-for="School12Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label>Học lực:  </label>
-                                <input asp-for="AbilityId" class="form-control" type="text" />
+                                <select asp-for="AbilityId" class="form-control" asp-items="ViewBag.abilityList"></select>
                                 <span asp-validation-for="AbilityId" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label>Hạnh kiểm:  </label>
-                                <input asp-for="ConductId" class="form-control" type="text" />
+                                <select asp-for="ConductId" class="form-control" asp-items="ViewBag.conductList"></select>
                                 <span asp-validation-for="ConductId" class="text-danger"></span>
                             </div>
 
@@ -255,13 +255,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label">Học bạ THPT: *</label>
-                                <input asp-for="ScoreCard" type="file" class="form-control" />
-                                <span asp-validation-for="ScoreCard" class="text-danger"></span>
+                                <input asp-for="ScoreCardFile" type="file" class="form-control" />
+                                <span>Cần 3 trang thông tin:Thông tin chung, Điểm tổng kết lớp 11 hoặc 12, Đánh giá kết quả rèn luyện của năm</span>
+                                <span asp-validation-for="ScoreCardFile" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Bằng tốt nghiệp/giấy CNTN: *</label>
-                                <input asp-for="Graduation" type="file" class="form-control" />
-                                <span asp-validation-for="Graduation" class="text-danger"></span>
+                                <input asp-for="GraduationFile" type="file" class="form-control" />
+                                <span asp-validation-for="GraduationFile" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -269,28 +270,20 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label">Nguyện vọng 1: * </label>
-                                <input name="nv1" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Nguyện vọng 2: * </label>
-                                <input name="nv2" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mã ngành:</label>
-                                <select class="form-control" asp-for="Major1Id">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
+                                <select asp-for="Major1Id" class="form-control" asp-items="ViewBag.majorList"></select>
                                 <span asp-validation-for="Major1Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã ngành:</label>
-                                <select class="form-control" asp-for="Major2Id">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
+                                <select asp-for="Major2Id" class="form-control" asp-items="ViewBag.majorList"></select>
                                 <span asp-validation-for="Major2Id" class="text-danger"></span>
                             </div>
                         </div>
@@ -300,31 +293,27 @@
                                 <label for="exampleInputEmail1">
                                     Tổ hợp:
                                 </label>
-                                <select class="form-control" asp-for="Combination1Id">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
+                                <select asp-for="Combination1Id" class="form-control" asp-items="ViewBag.combinationList"></select>
                                 <span asp-validation-for="Combination1Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">
                                     Tổ hợp:
                                 </label>
-                                <select class="form-control" asp-for="Combination2Id">
-                                    <option value="1" selected>Nam</option>
-                                    <option value="0">Nữ</option>
-                                </select>
+                                <select asp-for="Combination2Id" class="form-control" asp-items="ViewBag.combinationList"></select>
                                 <span asp-validation-for="Combination2Id" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input name="nv1" class="form-control" />
+                                <input asp-for="Point1" type="number" class="form-control" />
+                                <span asp-validation-for="Point1" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input name="nv2" class="form-control" />
+                                <input asp-for="Point2" type="number" class="form-control" />
+                                <span asp-validation-for="Point2" class="text-danger"></span>
                             </div>
                         </div>
 

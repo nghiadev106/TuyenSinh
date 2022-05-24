@@ -48,6 +48,8 @@ namespace TuyenSinh
             services.AddTransient<INewsService, NewsService>();
             services.AddTransient<ICategoryNewsService, CategoryNewsService>();
             services.AddTransient<IQuestionService, QuestionService>();
+            services.AddTransient<IStudentService, StudentService>();
+
 
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
