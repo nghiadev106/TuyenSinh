@@ -46,7 +46,7 @@ namespace TuyenSinh.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB;Database=tuyensinh;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-7G2VCHR;Database=tuyensinh;Trusted_Connection=True;");
             }
         }
 

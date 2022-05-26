@@ -174,12 +174,9 @@
                                 <input asp-for="Sbd" class="form-control" />
                                 <span asp-validation-for="Sbd" class="text-danger"></span>
                             </div>
-                        </div> <div class="form-group">
-                                   <label class="control-label">Mã HSĐKXT:</label>
-                            <input asp-for="Hsddkxt" class="form-control" />
-                            <span asp-validation-for="Hsddkxt" class="text-danger"></span>
+                          
                         </div>
-                    </div>
+                   
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 10: *</label>
@@ -206,7 +203,11 @@
                                 <select asp-for="ConductId" class="form-control" asp-items="ViewBag.conductList"></select>
                                 <span asp-validation-for="ConductId" class="text-danger"></span>
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label">Mã HSĐKXT:</label>
+                                <input asp-for="Hsddkxt" class="form-control" />
+                                <span asp-validation-for="Hsddkxt" class="text-danger"></span>
+                            </div>
                         </div>
                         <div class="col-12 col-md-12"><h3 style="color:red;">ĐIỂM THI CÁC MÔN THPT (Thí sinh chỉ cần ghi các điểm thuộc tổ hợp xét tuyển mà mình lựa chọn)</h3></div>
 
@@ -273,11 +274,11 @@
                         </div>
 
                         <div class="col-12 col-md-12"><h3 style="color:red;">4. THÔNG TIN ĐĂNG KÝ XÉT TUYỂN (Thí sinh phải tính điểm TBM học kỳ các môn ở bậc THPT trước khi chọn nguyện vọng)</h3></div>
-                        <div class="col-md-3">
-                            <div class="form-group">
+                        <div class="col-md-1">
+                            <div class="form-group" style=" margin-top: 35px;">
                                 <label class="control-label">Nguyện vọng 1: * </label>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style=" margin-top: 48px;">
                                 <label class="control-label">Nguyện vọng 2: * </label>
                             </div>
                         </div>
@@ -337,7 +338,6 @@
 
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
