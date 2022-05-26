@@ -1,9 +1,6 @@
-﻿@model TuyenSinh.Model.News
+﻿@model TuyenSinh.Model.Question
 @{
     ViewData["Title"] = "Chi tiết tin";
-    var categories = (List<TuyenSinh.Model.Category>)ViewBag.categories;
-    var relatedNews = (List<TuyenSinh.Model.News>)ViewBag.relatedNews;
-    var ListNews = (List<TuyenSinh.Model.News>)ViewBag.ListNews;
 }
 
 <div class="bodycontent" style="background-color: whitesmoke;">
@@ -29,7 +26,7 @@
                             <div class="entry">
                                 <div style="text-align:justify">
                                     <!----><!---->
-                                  @Html.Raw(Model.Detail)
+                                    @Html.Raw(Model.Detail)
                                 </div>
                             </div>
                         </div>

@@ -45,6 +45,7 @@ namespace TuyenSinh.Models
         public double? Geography { get; set; }
         public string Graduation { get; set; }
         public string ScoreCard { get; set; }
+        public int? Type { get; set; }
 
         public string ContactName { get; set; }
         public int? ContactPhone { get; set; }

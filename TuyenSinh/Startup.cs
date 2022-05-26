@@ -117,26 +117,26 @@ namespace TuyenSinh
                 });
 
                 endpoints.MapControllerRoute(
-               name: "SearchAdvand",
-               pattern: "tim-kiem-chi-tiet", new
-               {
-                   controller = "Products",
-                   action = "SearchAdvand"
-               });
-
-                endpoints.MapControllerRoute(
-               name: "Search",
-               pattern: "tim-kiem", new
-               {
-                   controller = "Products",
-                   action = "Search"
-               });
-
-                endpoints.MapControllerRoute(
                  name: "ProductCategories",
                  pattern: "chuyen-muc/{url}/{id}",
                  defaults: new { controller = "Home", action = "ProductCategories" }
                  );
+
+                endpoints.MapControllerRoute(
+               name: "question",
+               pattern: "cau-hoi", new
+               {
+                   controller = "Question",
+                   action = "Index"
+               });
+
+                endpoints.MapControllerRoute(
+                name: "question detail",
+                pattern: "cau-hoi/chi-tiet/{url}/{id}", new
+                {
+                    controller = "Question",
+                    action = "Detail"
+                });
 
                 endpoints.MapControllerRoute(
                 name: "Blog",

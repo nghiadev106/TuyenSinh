@@ -8,26 +8,26 @@ using TuyenSinh.Models;
 
 namespace TuyenSinh.Controllers
 {
-    public class BlogsController : Controller
+    public class QuestionController : Controller
     {
         private readonly tuyensinhContext _context;
 
-        public BlogsController(tuyensinhContext context)
-        {      
+        public QuestionController(tuyensinhContext context)
+        {
             _context = context;
         }
-        public async Task<IActionResult> ListBlogs(int page = 1)
+        public async Task<IActionResult> Index(int page = 1)
         {
             int totalRow = 0;
             var pageSize = 10;
-            var blogs = await _context.News.Where(x => x.Status == 1).OrderBy(x => x.DisplayOrder).ToListAsync();
+            var blogs = await _context.Questions.Where(x => x.Status == 1).OrderBy(x => x.DisplayOrder).ToListAsync();
             totalRow = blogs.Count();
-            var sanphams = blogs.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var ques = blogs.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
 
-            var paginationSet = new PaginationSet<News>()
+            var paginationSet = new PaginationSet<Question>()
             {
-                Items = sanphams,
+                Items = ques,
                 MaxPage = 5,
                 Page = page,
                 TotalCount = totalRow,
@@ -36,9 +36,9 @@ namespace TuyenSinh.Controllers
             return View(paginationSet);
         }
 
-        public async Task<IActionResult> DetailBlog(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            var blog = await _context.News.Where(x => x.Status == 1&& x.Id==id).SingleOrDefaultAsync();
+            var blog = await _context.Questions.Where(x => x.Status == 1 && x.Id == id).SingleOrDefaultAsync();
             return View(blog);
         }
     }

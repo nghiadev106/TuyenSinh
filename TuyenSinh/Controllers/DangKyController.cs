@@ -49,14 +49,37 @@ namespace TuyenSinh.Controllers
                 return View(request);
             }
 
-            //if (request.CategoryId == -1)
-            //{
-            //    ModelState.AddModelError("", "Bạn chưa chọn danh mục");
-            //    TempData["warning"] = "Bạn chưa chọn danh mục";
-            //    return View(request);
-            //}
-
             var result = await _service.DangKyHocBa(request);
+
+            if (result != -1)
+            {
+                TempData["success"] = "Đăng ký thành công";
+                return Redirect("/");
+            }
+
+            ModelState.AddModelError("", "Đăng ký thất bại");
+            TempData["error"] = "Đăng ký thất bại";
+            return View(request);
+        }
+
+        public IActionResult DangKyTHPT()
+        {
+            loadCategory();
+            return View();
+        }
+
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> DangKyTHPT(DangKyHocBaModel request)
+        {
+            loadCategory();
+            if (!ModelState.IsValid)
+            {
+                TempData["warning"] = "Bạn nhập thiếu dữ liệu";
+                return View(request);
+            }
+
+            var result = await _service.DangKyTHPT(request);
 
             if (result != -1)
             {
