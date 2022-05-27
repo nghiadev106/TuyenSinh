@@ -1358,7 +1358,6 @@ D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.dll
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\ref\TuyenSinh.dll
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.pdb
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.genruntimeconfig.cache
-D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.csprojAssemblyReference.cache
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\DangKy\DangKyTHPT.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\Index.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\Detail.cshtml.g.cs
@@ -1366,3 +1365,6 @@ D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.csproj.AssemblyReference.ca
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\DangKy\DangKyTHPT.cshtml.g.cs
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\Detail.cshtml.g.cs
 D:\DA\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\Index.cshtml.g.cs
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Major\Create.cshtml.g.cs
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Major\Edit.cshtml.g.cs
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Major\Index.cshtml.g.cs

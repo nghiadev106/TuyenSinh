@@ -4,30 +4,28 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 using TuyenSinh.Model;
+using TuyenSinh.Services;
 
 namespace TuyenSinh.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly tuyensinhContext _context;
+        private readonly IMajorService _majorService;
 
-        public HomeController(ILogger<HomeController> logger, tuyensinhContext context)
+        public HomeController(tuyensinhContext context, IMajorService majorService)
         {
-            _logger = logger;
             _context = context;
+            _majorService = majorService;
         }
 
         public async Task<IActionResult> Index()
         {
+            var majors = await _majorService.GetAll();
+            ViewBag.majors = majors;
             return View();
         }
 
-        public async Task<IActionResult> Categories(int id, string sort, int page = 1,int pageSize=12)
-        {
-           
-            return View();
-        }
 
         public IActionResult Contact()
         {

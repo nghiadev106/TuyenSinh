@@ -11,18 +11,12 @@ namespace TuyenSinh.Services
 {
     public interface IMajorService
     {
-
         Task<List<MajorViewModel>> GetAll();
         Task<List<MajorViewModel>> GetEdit(int id);
-
         Task<int> Create(MajorRequest request);
-
         Task<MajorViewModel> Detail(int id);
-
         Task<MajorRequest> Edit(int id);
-
         Task<int> Update(MajorRequest request);
-
         Task<int> Delete(int id);
     }
     public class MajorService : IMajorService
@@ -175,8 +169,6 @@ namespace TuyenSinh.Services
                 Combination4Name = _context.Combinations.Where(x => x.Id == m.Combination4).FirstOrDefault().Name,
             }).ToListAsync();
         }
-
-
 
         public async Task<int> Update(MajorRequest request)
         {

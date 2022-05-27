@@ -31,6 +31,7 @@ namespace TuyenSinh.Model
         public string ScoreCard { get; set; }
         public int? StudentId { get; set; }
         public int? Type { get; set; }
+        public int? YearGraduation { get; set; }
 
         public virtual Ability Ability { get; set; }
         public virtual Conduct Conduct { get; set; }

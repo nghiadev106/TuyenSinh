@@ -1,305 +1,81 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{ 
+   var majors = (List<TuyenSinh.Models.MajorViewModel>)ViewBag.majors;
 }
 
-<div class="section clearfix object-non-visible" data-animation-effect="fadeIn" style="padding-top:0px;" id="about">
-    <div class="container" style="">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="../DangKyXetHocBaTSDH/Index">
-                    <div class="lead text-center" style="font-size: 30px;">
-                        <h1 style="text-align:center"><span style="font-size:36px">THÔNG TIN TUYỂN SINH ĐẠI HỌC HỆ CHÍNH QUY 2022</span></h1>
-                    </div>
-                </a>
+    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn" style="padding-top:0px;" id="about">
+        <div class="container" style="">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="../DangKyXetHocBaTSDH/Index">
+                        <div class="lead text-center" style="font-size: 30px;">
+                            <h1 style="text-align:center"><span style="font-size:36px">THÔNG TIN TUYỂN SINH ĐẠI HỌC HỆ CHÍNH QUY 2022</span></h1>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- section start -->
-<!-- ================ --
-<!-- section end -->
-<!-- section start -->
-<!-- ================ -->
-<!-- section end -->
-<!-- section start -->
-<!-- ================translucent-bg bg-image-1 blue -->
-<div class="section ">
-    <div class="container object-non-visible" data-animation-effect="fadeIn" id="services">
-        <div>
-            <p>
-                <strong><span style="font-size:15.0pt">1. Đối tượng tuyển sinh:</span></strong><span style="font-size:15.0pt">
-                    Tất cả thí sinh đã tốt nghiệp THPT hoặc tương đương.<br />
-                    <strong>2. Phạm vi tuyển sinh:</strong> Toàn quốc.<br />
-                    <strong>3. Chỉ tiêu tuyển sinh: 3.100</strong><br />
-                    <strong>4. Phương thức tuyển sinh:</strong><br />
-                    <strong>Phương thức 1:</strong> Tuyển thẳng theo quy định của Bộ Giáo dục & Đào tạo;<br />
-                    <strong>Phương thức 2:</strong> Xét tuyển dựa vào kết quả kỳ thi tốt nghiệp THPT 2022;<br />
-                    <strong>Phương thức 3:</strong> Xét tuyển dựa vào kết quả học tập THPT hoặc tương đương.
-                </span>
-            </p>
+    <!-- section start -->
+    <!-- ================ --
+    <!-- section end -->
+    <!-- section start -->
+    <!-- ================ -->
+    <!-- section end -->
+    <!-- section start -->
+    <!-- ================translucent-bg bg-image-1 blue -->
+    <div class="section ">
+        <div class="container object-non-visible" data-animation-effect="fadeIn" id="services">
+            <div>
+                <p>
+                    <strong><span style="font-size:15.0pt">1. Đối tượng tuyển sinh:</span></strong><span style="font-size:15.0pt">
+                        Tất cả thí sinh đã tốt nghiệp THPT hoặc tương đương.<br />
+                        <strong>2. Phạm vi tuyển sinh:</strong> Toàn quốc.<br />
+                        <strong>3. Chỉ tiêu tuyển sinh: 3.100</strong><br />
+                        <strong>4. Phương thức tuyển sinh:</strong><br />
+                        <strong>Phương thức 1:</strong> Tuyển thẳng theo quy định của Bộ Giáo dục & Đào tạo;<br />
+                        <strong>Phương thức 2:</strong> Xét tuyển dựa vào kết quả kỳ thi tốt nghiệp THPT 2022;<br />
+                        <strong>Phương thức 3:</strong> Xét tuyển dựa vào kết quả học tập THPT hoặc tương đương.
+                    </span>
+                </p>
 
-            <p><strong><span style="font-size:15.0pt">Phương thức 4:</span></strong><span style="font-size:15.0pt"> Xét tuyển dựa vào kết quả kỳ thi đánh giá năng lực, đánh giá tư duy năm 2022.</span></p>
+                <p><strong><span style="font-size:15.0pt">Phương thức 4:</span></strong><span style="font-size:15.0pt"> Xét tuyển dựa vào kết quả kỳ thi đánh giá năng lực, đánh giá tư duy năm 2022.</span></p>
 
-            <p> </p>
+                <p> </p>
+            </div>
+
+            <h1 class="lead text-center" style="font-size: 40px;">Danh mục các ngành/nhóm ngành xét tuyển theo học bạ THPT</h1>
+
+
+            <table class="table table-hover table-bordered table-striped">
+                <tr>
+                    <th style="vertical-align : middle;text-align:center" rowspan="1">TT</th>
+                    <th style="vertical-align : middle;text-align:center" rowspan="1">Mã ngành</th>
+                    <th style="vertical-align : middle;text-align:center; width:250px" rowspan="1">Ngành học</th>
+                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 1</th>
+                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 2</th>
+                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 3</th>
+                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 4</th>
+                </tr>
+
+                <tbody>
+                    @if (majors.Count() > 0)
+                    {
+                        var i = 1;
+                        foreach (var item in majors)
+                        {
+                            <tr>
+                                <th style="vertical-align : middle;text-align:center">@(i++)</th>
+                                <th style="vertical-align : middle;text-align:center">@item.Code</th>
+                                <th style="vertical-align : middle;text-align:left">@item.Name</th>
+                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination1Name</th>
+                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination2Name</th>
+                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination3Name</th>
+                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination4Name</th>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
         </div>
-
-        <h1 class="lead text-center" style="font-size: 40px;">Danh mục các ngành/nhóm ngành xét tuyển theo học bạ THPT</h1>
-
-
-        <table class="table table-hover table-bordered table-striped">
-            <tr>
-                <th style="vertical-align : middle;text-align:center" rowspan="1">TT</th>
-                <th style="vertical-align : middle;text-align:center" rowspan="1">Mã ngành</th>
-                <th style="vertical-align : middle;text-align:center; width:250px" rowspan="1">Ngành học</th>
-                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 1</th>
-                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 2</th>
-                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 3</th>
-                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 4</th>
-
-
-            </tr>
-
-            <tbody>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">1</th>
-                    <th style="vertical-align : middle;text-align:center">7480201</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ th&#244;ng tin</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">2</th>
-                    <th style="vertical-align : middle;text-align:center">7480201A</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ th&#244;ng tin (2+2 H&#224;n Quốc)</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">3</th>
-                    <th style="vertical-align : middle;text-align:center">7480103</th>
-                    <th style="vertical-align : middle;text-align:left">Kỹ thuật phần mềm</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">4</th>
-                    <th style="vertical-align : middle;text-align:center">7510301</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật điện, điện tử</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">5</th>
-                    <th style="vertical-align : middle;text-align:center">7510303</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật điều khiển v&#224; tự động h&#243;a</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">6</th>
-                    <th style="vertical-align : middle;text-align:center">7510202</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ chế tạo m&#225;y</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">7</th>
-                    <th style="vertical-align : middle;text-align:center">7510201</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật cơ kh&#237;</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">8</th>
-                    <th style="vertical-align : middle;text-align:center">7510203</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật cơ điện tử</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">9</th>
-                    <th style="vertical-align : middle;text-align:center">7520118</th>
-                    <th style="vertical-align : middle;text-align:left">Kỹ thuật hệ thống c&#244;ng nghiệp</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">10</th>
-                    <th style="vertical-align : middle;text-align:center">7510205</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật &#244; t&#244;</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">11</th>
-                    <th style="vertical-align : middle;text-align:center">7510210</th>
-                    <th style="vertical-align : middle;text-align:left">Điện lạnh v&#224; điều h&#242;a kh&#244;ng kh&#237;</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">12</th>
-                    <th style="vertical-align : middle;text-align:center">7510211</th>
-                    <th style="vertical-align : middle;text-align:left">Bảo dưỡng c&#244;ng nghiệp</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">13</th>
-                    <th style="vertical-align : middle;text-align:center">7140246</th>
-                    <th style="vertical-align : middle;text-align:left">Sư phạm c&#244;ng nghệ</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">14</th>
-                    <th style="vertical-align : middle;text-align:center">7540209</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ may</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">15</th>
-                    <th style="vertical-align : middle;text-align:center">7340123</th>
-                    <th style="vertical-align : middle;text-align:left">Kinh doanh thời trang v&#224; dệt may</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">16</th>
-                    <th style="vertical-align : middle;text-align:center">7340101</th>
-                    <th style="vertical-align : middle;text-align:left">Quản trị kinh doanh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">17</th>
-                    <th style="vertical-align : middle;text-align:center">7340301</th>
-                    <th style="vertical-align : middle;text-align:left">Kế to&#225;n (Kế to&#225;n doanh nghiệp)</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">18</th>
-                    <th style="vertical-align : middle;text-align:center">7310101</th>
-                    <th style="vertical-align : middle;text-align:left">Kinh tế (Kinh tế đầu tư)</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">19</th>
-                    <th style="vertical-align : middle;text-align:center">7510401</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ kỹ thuật h&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Sinh học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Sinh học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">20</th>
-                    <th style="vertical-align : middle;text-align:center">7540103</th>
-                    <th style="vertical-align : middle;text-align:left">C&#244;ng nghệ h&#243;a thực phẩm</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, H&#243;a học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Sinh học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Sinh học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, H&#243;a học, Tiếng Anh</th>
-
-
-
-                </tr>
-                <tr>
-                    <th style="vertical-align : middle;text-align:center">21</th>
-                    <th style="vertical-align : middle;text-align:center">7220201</th>
-                    <th style="vertical-align : middle;text-align:left">Ng&#244;n ngữ Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Ngữ văn, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Vật l&#253;, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Lịch sử, Tiếng Anh</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">To&#225;n, Địa l&#253;, Tiếng Anh</th>
-
-
-
-                </tr>
-
-
-
-            </tbody>
-        </table>
-
     </div>
-</div>

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TuyenSinh.Model;
@@ -24,6 +26,8 @@ namespace TuyenSinh.Services
             _context = context;
             _storageService = storageService;
         }
+
+
     
         public async Task<int> DangKyHocBa(DangKyHocBaModel request)
         {
@@ -70,7 +74,8 @@ namespace TuyenSinh.Services
                         History = request.History,
                         Geography = request.Geography,
                         StudentId = student.Id,
-                        Type=1
+                        YearGraduation=request.YearGraduation,
+                        Type =1
                     };
                     if (request.ScoreCardFile != null)
                     {
@@ -150,6 +155,7 @@ namespace TuyenSinh.Services
                         Biology = request.Biology,
                         History = request.History,
                         Geography = request.Geography,
+                        YearGraduation=request.YearGraduation,
                         StudentId = student.Id,
                         Type=2
                     };
@@ -184,6 +190,72 @@ namespace TuyenSinh.Services
                     transaction.Rollback();
                     return -1;
                 }
+            }
+        }
+
+        public async Task<DangKyHocBaModel> Detail(int id)
+        {
+            try
+            {
+                Student s = await _context.Students.FindAsync(id);
+                ContactInfo c =await _context.ContactInfos.Where(x => x.StudentId == id).FirstOrDefaultAsync();
+                InfoThpt info = await _context.InfoThpts.Where(x => x.StudentId == id).FirstOrDefaultAsync();
+                Wish wish = await _context.Wishes.Where(x => x.StudentId == id).FirstOrDefaultAsync();
+
+                DangKyHocBaModel detail = new DangKyHocBaModel()
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Phone=s.Phone,
+                    Email=s.Email,
+                    Address=s.Address,
+                    Dob=s.Dob,
+                    Gender=s.Gender,
+                    Status=s.Status,
+                    CreateDate=s.CreateDate,
+                    NationId=s.NationId,
+                    Cmnd=s.Cmnd,
+                    ProvinceId=s.ProvinceId,
+                    Province10Id=info.Province10Id,
+                    Province11Id=info.Province11Id,
+                    Province12Id=info.Province12Id,
+                    School10Id=info.School10Id,
+                    School11Id=info.School11Id,
+                    School12Id=info.School12Id,
+                    AbilityId=info.AbilityId,
+                    ConductId=info.ConductId,
+                    Point=info.Point,
+                    YearGraduation =info.YearGraduation,
+                    Sbd=info.Sbd,
+                    Hsddkxt=info.Hsddkxt,
+                    Math=info.Math,
+                    Literature=info.Literature,
+                    English = info.English,
+                    Chemistry = info.Chemistry,
+                    Physics = info.Physics,
+                    Biology = info.Biology,
+                    History = info.History,
+                    Geography = info.Geography,
+                    Graduation = info.Graduation,
+                    ScoreCard = info.ScoreCard,
+                    Type=info.Type,
+                    ContactName=c.Name,
+                    ContactAddress=c.Address,
+                    ContactBhyt=c.Bhyt,
+                    ContactPhone=c.Phone,
+                    ContactSubjectTo=c.SubjectToId,
+                    Major1Id=wish.Major1Id,
+                    Major2Id=wish.Major2Id,
+                    Point1=wish.Point1,
+                    Point2=wish.Point2,
+                    Combination1Id=wish.Combination1Id,
+                    Combination2Id=wish.Combination2Id
+                };
+                return detail;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 
