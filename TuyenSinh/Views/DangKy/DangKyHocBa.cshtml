@@ -4,46 +4,62 @@
     ViewData["Title"] = "DangKyHocBa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<input type="hidden" id="success" value="@TempData["success"]" />
+<input type="hidden" id="warning" value="@TempData["warning"]" />
+<input type="hidden" id="error" value="@TempData["error"]" />
 <script type="text/javascript" charset="utf-8">
-                    $(document).ready(function () {
-                        $("#province").on("change", function () {
-                            var id = $("#province").val();
-                            $.ajax({
-                                url: "/get-district",
-                                type: "GET",
-                                data: { id: id },
-                                success: function (result) {
-                                    $("#district").html($('<option/>', { value: 0, text: '[Chọn Quận/Huyện]' }));
-                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
-                                    $.each(result, function (i, item) {
-                                        $("#district").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
-                                    });
-                                },
-                                error: function (e) {
-                                    alert(e);
-                                }
-                            });
-                        });
-
-                        $("#district").on("change", function () {
-                            var id = $("#district").val();
-                            $.ajax({
-                                url: "/get-ward",
-                                type: "GET",
-                                data: { id: id },
-                                success: function (result) {
-                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
-                                    $.each(result, function (i, item) {
-                                        $("#ward").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
-                                    });
-                                },
-                                error: function (e) {
-                                    alert(e);
-                                }
-                            });
-                        });
+    $(document).ready(function () {
+        $("#province1").on("change", function () {
+            var id = $("#province1").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school1").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
                     });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        });
+
+        $("#province2").on("change", function () {
+            var id = $("#province2").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school2").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                    });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        });
+
+        $("#province3").on("change", function () {
+            var id = $("#province3").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school3").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                    });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        });
+    });
 </script>
 <div id="toTop"></div>
 <h3 style="text-align:center;color:blue;">
@@ -65,7 +81,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số điện thoại</label>
-                                <input asp-for="Phone" class="form-control" />
+                                <input type="number" asp-for="Phone" class="form-control" />
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -102,7 +118,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số CMND/CCCD: </label>
-                                <input asp-for="Cmnd" type="text" class="form-control" />
+                                <input asp-for="Cmnd" type="number" class="form-control" />
                                 <span asp-validation-for="Cmnd" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -120,7 +136,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số điện thoại</label>
-                                <input asp-for="ContactPhone" class="form-control" />
+                                <input type="number" asp-for="ContactPhone" class="form-control" />
                                 <span asp-validation-for="ContactPhone" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -146,17 +162,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 10:</label>
-                                <select asp-for="Province10Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province1" asp-for="Province10Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 11:</label>
-                                <select asp-for="Province11Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province2" asp-for="Province11Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 12:</label>
-                                <select asp-for="Province12Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province3" asp-for="Province12Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province12Id" class="text-danger"></span>
                             </div>
 
@@ -167,7 +183,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Điểm tốt nghiệp</label>
-                                <input asp-for="Point" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Point" class="form-control" />
                                 <span asp-validation-for="Point" class="text-danger"></span>
                             </div> <div class="form-group">
                                 <label class="control-label">SBD kỳ thi THPT</label>
@@ -178,17 +194,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 10: *</label>
-                                <select asp-for="School10Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school1" asp-for="School10Id" class="form-control"></select>
                                 <span asp-validation-for="School10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mã trường lớp 11: *</label>
-                                <select asp-for="School11Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school2" asp-for="School11Id" class="form-control"></select>
                                 <span asp-validation-for="School11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 12: * </label>
-                                <select asp-for="School12Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school3" asp-for="School12Id" class="form-control"></select>
                                 <span asp-validation-for="School12Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -208,45 +224,45 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">TB môn toán:</label>
-                                <input asp-for="Math" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Math" class="form-control" />
                                 <span asp-validation-for="Math" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn văn:</label>
-                                <input asp-for="Literature" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Literature" class="form-control" />
                                 <span asp-validation-for="Literature" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn anh:</label>
-                                <input asp-for="English" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="English" class="form-control" />
                                 <span asp-validation-for="English" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">TB môn lý</label>
-                                <input asp-for="Physics" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Physics" class="form-control" />
                                 <span asp-validation-for="Physics" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">TB môn hóa</label>
-                                <input asp-for="Chemistry" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Chemistry" class="form-control" />
                                 <span asp-validation-for="Chemistry" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn sinh</label>
-                                <input asp-for="Biology" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Biology" class="form-control" />
                                 <span asp-validation-for="Biology" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn sử</label>
-                                <input asp-for="History" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="History" class="form-control" />
                                 <span asp-validation-for="History" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">TB môn địa</label>
-                                <input asp-for="Geography" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Geography" class="form-control" />
                                 <span asp-validation-for="Geography" class="text-danger"></span>
                             </div>
                         </div>
@@ -307,16 +323,15 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input asp-for="Point1" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Point1" class="form-control" />
                                 <span asp-validation-for="Point1" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input asp-for="Point2" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Point2" class="form-control" />
                                 <span asp-validation-for="Point2" class="text-danger"></span>
                             </div>
                         </div>
-
 
                         <div class="col-12 col-md-12">
                             <div class="form-group" style="display: flex; align-items: center; justify-content: center; margin-top: 25px; }">

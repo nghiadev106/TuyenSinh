@@ -39,8 +39,7 @@ namespace TuyenSinh.Areas.Admin.Controllers
             {
                 HttpContext.Session.SetString("Token", JsonConvert.SerializeObject(request));
                 return Redirect(returnUrl);
-            }
-              
+            }             
 
             if (ModelState.IsValid)
             {

@@ -12,8 +12,8 @@ namespace TuyenSinh.Model
         public int? Major2Id { get; set; }
         public int? Combination1Id { get; set; }
         public int? Combination2Id { get; set; }
-        public double? Point1 { get; set; }
-        public double? Point2 { get; set; }
+        public string Point1 { get; set; }
+        public string Point2 { get; set; }
         public int? StudentId { get; set; }
 
         public virtual Combination Combination1 { get; set; }

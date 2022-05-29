@@ -16,17 +16,17 @@ namespace TuyenSinh.Model
         public int? School12Id { get; set; }
         public int? AbilityId { get; set; }
         public int? ConductId { get; set; }
-        public double? Point { get; set; }
+        public string Point { get; set; }
         public string Sbd { get; set; }
         public string Hsddkxt { get; set; }
-        public double? Math { get; set; }
-        public double? Literature { get; set; }
-        public double? English { get; set; }
-        public double? Physics { get; set; }
-        public double? Chemistry { get; set; }
-        public double? Biology { get; set; }
-        public double? History { get; set; }
-        public double? Geography { get; set; }
+        public string Math { get; set; }
+        public string Literature { get; set; }
+        public string English { get; set; }
+        public string Physics { get; set; }
+        public string Chemistry { get; set; }
+        public string Biology { get; set; }
+        public string History { get; set; }
+        public string Geography { get; set; }
         public string Graduation { get; set; }
         public string ScoreCard { get; set; }
         public int? StudentId { get; set; }

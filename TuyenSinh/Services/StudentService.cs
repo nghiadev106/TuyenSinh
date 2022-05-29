@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -13,7 +14,9 @@ namespace TuyenSinh.Services
     public interface IStudentService
     {
         Task<int> DangKyHocBa(DangKyHocBaModel request);
-        Task<int> DangKyTHPT(DangKyHocBaModel request);
+        Task<int> DangKyTHPT(DangKyTHPTModel request);
+        Task<DangKyTHPTModel> Detail(int id);
+        Task<List<Student>> GetAll();
     }
     public class StudentService : IStudentService
     {
@@ -26,8 +29,6 @@ namespace TuyenSinh.Services
             _context = context;
             _storageService = storageService;
         }
-
-
     
         public async Task<int> DangKyHocBa(DangKyHocBaModel request)
         {
@@ -44,7 +45,7 @@ namespace TuyenSinh.Services
                         Dob = request.Dob,
                         Gender = request.Gender,
                         Cmnd = request.Cmnd,
-                        Status = 1,
+                        Status = 0,
                         CreateDate = DateTime.Now,
                         ProvinceId = request.ProvinceId,
                         Phone = request.Phone
@@ -52,6 +53,18 @@ namespace TuyenSinh.Services
 
                     _context.Students.Add(student);
                     await _context.SaveChangesAsync();
+
+                    var contact = new ContactInfo()
+                    {
+                        Name = request.ContactName,
+                        Address = request.ContactAddress,
+                        Bhyt = request.ContactBhyt,
+                        SubjectToId = request.ContactSubjectTo,
+                        Phone = request.ContactPhone,
+                        StudentId = student.Id
+                    };
+                    _context.ContactInfos.Add(contact);
+
                     var infoTHPT = new InfoThpt()
                     {
                         Province10Id = request.Province10Id,
@@ -64,7 +77,6 @@ namespace TuyenSinh.Services
                         ConductId = request.ConductId,
                         Point = request.Point,
                         Sbd = request.Sbd,
-                        Hsddkxt = request.Hsddkxt,
                         Math = request.Math,
                         Literature = request.Literature,
                         English = request.English,
@@ -111,7 +123,7 @@ namespace TuyenSinh.Services
             }
         }
 
-        public async Task<int> DangKyTHPT(DangKyHocBaModel request)
+        public async Task<int> DangKyTHPT(DangKyTHPTModel request)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
@@ -126,7 +138,7 @@ namespace TuyenSinh.Services
                         Dob = request.Dob,
                         Gender = request.Gender,
                         Cmnd = request.Cmnd,
-                        Status = 1,
+                        Status = 0,
                         CreateDate = DateTime.Now,
                         ProvinceId = request.ProvinceId,
                         Phone = request.Phone
@@ -134,6 +146,18 @@ namespace TuyenSinh.Services
 
                     _context.Students.Add(student);
                     await _context.SaveChangesAsync();
+
+                    var contact = new ContactInfo()
+                    {
+                        Name = request.ContactName,
+                        Address = request.ContactAddress,
+                        Bhyt = request.ContactBhyt,
+                        SubjectToId = request.ContactSubjectTo,
+                        Phone = request.ContactPhone,
+                        StudentId = student.Id
+                    };
+                    _context.ContactInfos.Add(contact);
+
                     var infoTHPT = new InfoThpt()
                     {
                         Province10Id = request.Province10Id,
@@ -193,7 +217,20 @@ namespace TuyenSinh.Services
             }
         }
 
-        public async Task<DangKyHocBaModel> Detail(int id)
+        public async Task<List<Student>> GetAll()
+        {
+            try
+            {
+                var s = await _context.Students.ToListAsync();                
+                return s;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<DangKyTHPTModel> Detail(int id)
         {
             try
             {
@@ -202,7 +239,7 @@ namespace TuyenSinh.Services
                 InfoThpt info = await _context.InfoThpts.Where(x => x.StudentId == id).FirstOrDefaultAsync();
                 Wish wish = await _context.Wishes.Where(x => x.StudentId == id).FirstOrDefaultAsync();
 
-                DangKyHocBaModel detail = new DangKyHocBaModel()
+                DangKyTHPTModel detail = new DangKyTHPTModel()
                 {
                     Id = s.Id,
                     Name = s.Name,

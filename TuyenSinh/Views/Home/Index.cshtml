@@ -1,81 +1,83 @@
-﻿@{ 
-   var majors = (List<TuyenSinh.Models.MajorViewModel>)ViewBag.majors;
+﻿@{
+    var majors = (List<TuyenSinh.Models.MajorViewModel>)ViewBag.majors;
 }
-
-    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn" style="padding-top:0px;" id="about">
-        <div class="container" style="">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="../DangKyXetHocBaTSDH/Index">
-                        <div class="lead text-center" style="font-size: 30px;">
-                            <h1 style="text-align:center"><span style="font-size:36px">THÔNG TIN TUYỂN SINH ĐẠI HỌC HỆ CHÍNH QUY 2022</span></h1>
-                        </div>
-                    </a>
-                </div>
+<input type="hidden" id="success" value="@TempData["success"]" />
+<input type="hidden" id="warning" value="@TempData["warning"]" />
+<input type="hidden" id="error" value="@TempData["error"]" />
+<div class="section clearfix object-non-visible" data-animation-effect="fadeIn" style="padding-top:0px;" id="about">
+    <div class="container" style="">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="../DangKyXetHocBaTSDH/Index">
+                    <div class="lead text-center" style="font-size: 30px;">
+                        <h1 style="text-align:center"><span style="font-size:36px">THÔNG TIN TUYỂN SINH ĐẠI HỌC HỆ CHÍNH QUY 2022</span></h1>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
-    <!-- section start -->
-    <!-- ================ --
-    <!-- section end -->
-    <!-- section start -->
-    <!-- ================ -->
-    <!-- section end -->
-    <!-- section start -->
-    <!-- ================translucent-bg bg-image-1 blue -->
-    <div class="section ">
-        <div class="container object-non-visible" data-animation-effect="fadeIn" id="services">
-            <div>
-                <p>
-                    <strong><span style="font-size:15.0pt">1. Đối tượng tuyển sinh:</span></strong><span style="font-size:15.0pt">
-                        Tất cả thí sinh đã tốt nghiệp THPT hoặc tương đương.<br />
-                        <strong>2. Phạm vi tuyển sinh:</strong> Toàn quốc.<br />
-                        <strong>3. Chỉ tiêu tuyển sinh: 3.100</strong><br />
-                        <strong>4. Phương thức tuyển sinh:</strong><br />
-                        <strong>Phương thức 1:</strong> Tuyển thẳng theo quy định của Bộ Giáo dục & Đào tạo;<br />
-                        <strong>Phương thức 2:</strong> Xét tuyển dựa vào kết quả kỳ thi tốt nghiệp THPT 2022;<br />
-                        <strong>Phương thức 3:</strong> Xét tuyển dựa vào kết quả học tập THPT hoặc tương đương.
-                    </span>
-                </p>
+</div>
+<!-- section start -->
+<!-- ================ --
+<!-- section end -->
+<!-- section start -->
+<!-- ================ -->
+<!-- section end -->
+<!-- section start -->
+<!-- ================translucent-bg bg-image-1 blue -->
+<div class="section ">
+    <div class="container object-non-visible" data-animation-effect="fadeIn" id="services">
+        <div>
+            <p>
+                <strong><span style="font-size:15.0pt">1. Đối tượng tuyển sinh:</span></strong><span style="font-size:15.0pt">
+                    Tất cả thí sinh đã tốt nghiệp THPT hoặc tương đương.<br />
+                    <strong>2. Phạm vi tuyển sinh:</strong> Toàn quốc.<br />
+                    <strong>3. Chỉ tiêu tuyển sinh: 3.100</strong><br />
+                    <strong>4. Phương thức tuyển sinh:</strong><br />
+                    <strong>Phương thức 1:</strong> Tuyển thẳng theo quy định của Bộ Giáo dục & Đào tạo;<br />
+                    <strong>Phương thức 2:</strong> Xét tuyển dựa vào kết quả kỳ thi tốt nghiệp THPT 2022;<br />
+                    <strong>Phương thức 3:</strong> Xét tuyển dựa vào kết quả học tập THPT hoặc tương đương.
+                </span>
+            </p>
 
-                <p><strong><span style="font-size:15.0pt">Phương thức 4:</span></strong><span style="font-size:15.0pt"> Xét tuyển dựa vào kết quả kỳ thi đánh giá năng lực, đánh giá tư duy năm 2022.</span></p>
+            <p><strong><span style="font-size:15.0pt">Phương thức 4:</span></strong><span style="font-size:15.0pt"> Xét tuyển dựa vào kết quả kỳ thi đánh giá năng lực, đánh giá tư duy năm 2022.</span></p>
 
-                <p> </p>
-            </div>
+            <p> </p>
+        </div>
 
-            <h1 class="lead text-center" style="font-size: 40px;">Danh mục các ngành/nhóm ngành xét tuyển theo học bạ THPT</h1>
+        <h1 class="lead text-center" style="font-size: 40px;">Danh mục các ngành/nhóm ngành xét tuyển theo học bạ THPT</h1>
 
 
-            <table class="table table-hover table-bordered table-striped">
-                <tr>
-                    <th style="vertical-align : middle;text-align:center" rowspan="1">TT</th>
-                    <th style="vertical-align : middle;text-align:center" rowspan="1">Mã ngành</th>
-                    <th style="vertical-align : middle;text-align:center; width:250px" rowspan="1">Ngành học</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 1</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 2</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 3</th>
-                    <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 4</th>
-                </tr>
+        <table class="table table-hover table-bordered table-striped">
+            <tr>
+                <th style="vertical-align : middle;text-align:center" rowspan="1">TT</th>
+                <th style="vertical-align : middle;text-align:center" rowspan="1">Mã ngành</th>
+                <th style="vertical-align : middle;text-align:center; width:250px" rowspan="1">Ngành học</th>
+                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 1</th>
+                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 2</th>
+                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 3</th>
+                <th style="vertical-align : middle;text-align:center;" colspan="1">Tổ hợp môn 4</th>
+            </tr>
 
-                <tbody>
-                    @if (majors.Count() > 0)
+            <tbody>
+                @if (majors.Count() > 0)
+                {
+                    var i = 1;
+                    foreach (var item in majors)
                     {
-                        var i = 1;
-                        foreach (var item in majors)
-                        {
-                            <tr>
-                                <th style="vertical-align : middle;text-align:center">@(i++)</th>
-                                <th style="vertical-align : middle;text-align:center">@item.Code</th>
-                                <th style="vertical-align : middle;text-align:left">@item.Name</th>
-                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination1Name</th>
-                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination2Name</th>
-                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination3Name</th>
-                                <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination4Name</th>
-                            </tr>
-                        }
+                        <tr>
+                            <th style="vertical-align : middle;text-align:center">@(i++)</th>
+                            <th style="vertical-align : middle;text-align:center">@item.Code</th>
+                            <th style="vertical-align : middle;text-align:left">@item.Name</th>
+                            <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination1Name</th>
+                            <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination2Name</th>
+                            <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination3Name</th>
+                            <th style="vertical-align : middle;text-align:center;" colspan="1">@item.Combination4Name</th>
+                        </tr>
                     }
-                </tbody>
-            </table>
+                }
+            </tbody>
+        </table>
 
-        </div>
     </div>
+</div>

@@ -203,6 +203,17 @@ namespace TuyenSinh.Model
 
                 entity.Property(e => e.Graduation).HasMaxLength(500);
 
+                entity.Property(e => e.Point).HasMaxLength(10);
+                entity.Property(e => e.Math).HasMaxLength(10);
+                entity.Property(e => e.Literature).HasMaxLength(10);
+
+                entity.Property(e => e.English).HasMaxLength(10);
+                entity.Property(e => e.Biology).HasMaxLength(10);
+                entity.Property(e => e.Geography).HasMaxLength(10);
+                entity.Property(e => e.Chemistry).HasMaxLength(10);
+                entity.Property(e => e.History).HasMaxLength(10);
+                entity.Property(e => e.Physics).HasMaxLength(10);
+
                 entity.Property(e => e.Hsddkxt)
                     .HasMaxLength(50)
                     .HasColumnName("HSDDKXT");
@@ -374,6 +385,8 @@ namespace TuyenSinh.Model
             modelBuilder.Entity<Wish>(entity =>
             {
                 entity.ToTable("Wish");
+                entity.Property(e => e.Point1).HasMaxLength(10);
+                entity.Property(e => e.Point2).HasMaxLength(10);
 
                 entity.HasOne(d => d.Combination1)
                     .WithMany(p => p.Wishes)

@@ -18,10 +18,10 @@ namespace TuyenSinh.Model
         public DateTime? CreateDate { get; set; }
         public DateTime? EditDate { get; set; }
         public string Code { get; set; }
-        public double? Combination1 { get; set; }
-        public double? Combination2 { get; set; }
-        public double? Combination3 { get; set; }
-        public double? Combination4 { get; set; }
+        public int? Combination1 { get; set; }
+        public int? Combination2 { get; set; }
+        public int? Combination3 { get; set; }
+        public int? Combination4 { get; set; }
 
         public virtual ICollection<Wish> Wishes { get; set; }
     }

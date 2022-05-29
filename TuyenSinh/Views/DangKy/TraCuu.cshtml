@@ -1,0 +1,51 @@
+﻿
+<div class="row" style="">
+    <h4 class="title_TCTT title_TCTT_2 title_TCTT_3" style="text-align:center"> TRA CỨU THÔNG TIN HỒ SƠ TRÚNG TUYỂN XÉT TUYỂN ĐẠI HỌC HỆ CHÍNH QUY NĂM 2022 </h4>
+    <p style="color:red;text-align:center">(Tra cứu theo tên hoặc số CMT/CCCD)</p>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Email: </label>
+                    <input id="email" name="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số CMND/CCCD: </label>
+                    <input id="CMND" name="Cmnd" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Hình thức</label>
+                    <select id="Hinh_thuc" name="Hinh_thuc" class="form-control">
+                        <option value="1" selected>Đăng ký theo học bạ</option>
+                        <option value="2">Đăng ký theo kết quả thi THPT</option>
+                    </select>
+
+                </div>
+
+                <div class="col-12 col-md-12">
+                    <div class="form-group" style="display: flex; align-items: center; justify-content: center; margin-top: 25px; }">
+                        <input id="search" type="button" value="Tra cứu" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="error" style="text-align:center;color:red;font-weight:bold;font-size:20px;margin:0">Phải nhập CMND/CCCD và email để tra cứu</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#error').hide();
+        $("#search").on("click", function () {
+            var cmnd = $("#CMND").val();
+            var hoten = $("#email").val();
+            var hinhthuc = $('#Hinh_thuc').val();
+            if (cmnd.trim() == null || hoten.trim() == null || cmnd.trim() == '' || hoten.trim() == '') {
+                $('#error').show();
+                return;
+            }
+            location.href = "/DangKy/Search?cmnd=" + cmnd + "&email=" + hoten + "&type=" + hinhthuc;
+        })
+    });
+</script>

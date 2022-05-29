@@ -1,0 +1,45 @@
+﻿@model TuyenSinh.Model.Student
+
+@if (Model != null)
+{
+    <div class="row" style="">
+        <h4 class="title_TCTT title_TCTT_2 title_TCTT_3" style="text-align:center"> KẾT QUẢ TRA CỨU THÔNG TIN HỒ SƠ TRÚNG TUYỂN XÉT TUYỂN ĐẠI HỌC HỆ CHÍNH QUY NĂM 2022 </h4>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label">Họ và tên: </label>
+                        <input readonly asp-for="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email: </label>
+                        <input readonly asp-for="Email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Số CMND/CCCD: </label>
+                        <input readonly asp-for="Cmnd" class="form-control" />
+                    </div>
+                    @if (Model.Status == 0)
+                    {
+                        <div style="text-align:center;color:red;font-weight:bold;font-size:20px;margin:0">Hồ sơ của bạn đang chờ xét duyệt!</div>
+                    }
+                    else if (Model.Status == 1)
+                    {
+                        <div style="text-align:center;color:red;font-weight:bold;font-size:20px;margin:0">Chúc mừng bạn đã trúng tuyển!</div>
+                    }
+                    else
+                    {
+                        <div style="text-align:center;color:red;font-weight:bold;font-size:20px;margin:0">Bạn không đủ điều trúng tuyển!</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row" style="">
+        <h4 class="title_TCTT title_TCTT_2 title_TCTT_3" style="text-align: center; color: red; font-weight: bold; font-size: 20px; margin:100px 0">Không tìm thấy thông tin 
+        phù hợp </h4>
+    </div>
+}

@@ -43,6 +43,18 @@ namespace TuyenSinh.Controllers
         public async Task<IActionResult> DangKyHocBa(DangKyHocBaModel request)
         {
             loadCategory();
+            var email = _context.Students.Where(x => x.Email == request.Email).FirstOrDefault();
+            if (email != null)
+            {
+                TempData["error"] = "Email đã tồn tại";
+                return View(request);
+            }
+            var cmnd = _context.Students.Where(x => x.Cmnd == request.Cmnd).FirstOrDefault();
+            if (cmnd != null)
+            {
+                TempData["error"] = "CMND/CCCD đã tồn tại";
+                return View(request);
+            }
             if (!ModelState.IsValid)
             {
                 TempData["warning"] = "Bạn nhập thiếu dữ liệu";
@@ -68,11 +80,38 @@ namespace TuyenSinh.Controllers
             return View();
         }
 
+        public IActionResult TraCuu()
+        {
+            return View();
+        }
+
+        public IActionResult Search(string email, int cmnd, int type)
+        {
+            var student = from s in _context.Students
+                          join i in _context.InfoThpts on s.Id equals i.StudentId
+                          where s.Email == email && s.Cmnd == cmnd && i.Type == type
+                          select s;
+            var result = student.FirstOrDefault();
+            return View(result);
+        }
+
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> DangKyTHPT(DangKyHocBaModel request)
+        public async Task<IActionResult> DangKyTHPT(DangKyTHPTModel request)
         {
             loadCategory();
+            var email = _context.Students.Where(x => x.Email == request.Email).FirstOrDefault();
+            if (email != null)
+            {
+                TempData["error"] = "Email đã tồn tại";
+                return View(request);
+            }
+            var cmnd = _context.Students.Where(x => x.Cmnd == request.Cmnd).FirstOrDefault();
+            if (cmnd != null)
+            {
+                TempData["error"] = "CMND/CCCD đã tồn tại";
+                return View(request);
+            }
             if (!ModelState.IsValid)
             {
                 TempData["warning"] = "Bạn nhập thiếu dữ liệu";

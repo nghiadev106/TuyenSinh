@@ -101,27 +101,6 @@ namespace TuyenSinh
 
             app.UseEndpoints(endpoints =>
             {
-               endpoints.MapControllerRoute(
-               name: "Cart",
-               pattern: "thanh-toan", new
-               {
-                   controller = "Cart",
-                   action = "Checkout"
-               });
-
-                endpoints.MapControllerRoute(
-                name: "Cart",
-                pattern: "gio-hang", new
-                {
-                    controller = "Cart",
-                    action = "Index"
-                });
-
-                endpoints.MapControllerRoute(
-                 name: "ProductCategories",
-                 pattern: "chuyen-muc/{url}/{id}",
-                 defaults: new { controller = "Home", action = "ProductCategories" }
-                 );
 
                 endpoints.MapControllerRoute(
                name: "question",
@@ -162,23 +141,6 @@ namespace TuyenSinh
                    controller = "Blogs",
                    action = "ListBlogCategories"
                });
-
-
-                endpoints.MapControllerRoute(
-                 name: "Product Detail",
-                 pattern: "san-pham/{url}/{id}", new
-                 {
-                     controller = "Products",
-                     action = "DetailProduct"
-                 });
-
-                endpoints.MapControllerRoute(
-                 name: "Product Detail",
-                 pattern: "lien-he", new
-                 {
-                     controller = "Home",
-                     action = "Contact"
-                 });
 
                 endpoints.MapControllerRoute(
                 name: "admin",

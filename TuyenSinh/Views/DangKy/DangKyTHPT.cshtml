@@ -1,49 +1,84 @@
-﻿@model TuyenSinh.Models.DangKyHocBaModel
+﻿@model TuyenSinh.Models.DangKyTHPTModel
 
 @{
     ViewData["Title"] = "DangKyHocBa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<input type="hidden" id="success" value="@TempData["success"]" />
+<input type="hidden" id="warning" value="@TempData["warning"]" />
+<input type="hidden" id="error" value="@TempData["error"]" />
 <script type="text/javascript" charset="utf-8">
-                    $(document).ready(function () {
-                        $("#province").on("change", function () {
-                            var id = $("#province").val();
-                            $.ajax({
-                                url: "/get-district",
-                                type: "GET",
-                                data: { id: id },
-                                success: function (result) {
-                                    $("#district").html($('<option/>', { value: 0, text: '[Chọn Quận/Huyện]' }));
-                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
-                                    $.each(result, function (i, item) {
-                                        $("#district").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
-                                    });
-                                },
-                                error: function (e) {
-                                    alert(e);
-                                }
-                            });
-                        });
-
-                        $("#district").on("change", function () {
-                            var id = $("#district").val();
-                            $.ajax({
-                                url: "/get-ward",
-                                type: "GET",
-                                data: { id: id },
-                                success: function (result) {
-                                    $("#ward").html($('<option/>', { value: 0, text: '[Chọn Xã/Phường]' }));
-                                    $.each(result, function (i, item) {
-                                        $("#ward").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
-                                    });
-                                },
-                                error: function (e) {
-                                    alert(e);
-                                }
-                            });
-                        });
+    $(document).ready(function () {
+        function getSchool1() {
+            var id = $("#province1").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school1").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
                     });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        }
+        function getSchool2() {
+            var id = $("#province2").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school2").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                    });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        }
+
+        function getSchool3() {
+            var id = $("#province3").val();
+            $.ajax({
+                url: "/Home/GetSchool",
+                type: "GET",
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        $("#school3").append('<option value="' + item.id + '"> ' + item.name + ' </option>');
+                    });
+                },
+                error: function (e) {
+                    alert(e);
+                }
+            });
+        }
+
+        function init() {
+            getSchool1();
+            getSchool2();
+            getSchool3();
+        }
+
+        init();
+
+        $("#province1").on("change", function () {
+            getSchool1();
+        });
+
+        $("#province2").on("change", function () {
+            getSchool2();
+        });
+
+        $("#province3").on("change", function () {
+            getSchool3();
+        });
+    });
 </script>
 <div id="toTop"></div>
 <h3 style="text-align:center;color:blue;">
@@ -146,17 +181,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 10:</label>
-                                <select asp-for="Province10Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province1" asp-for="Province10Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 11:</label>
-                                <select asp-for="Province11Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province2" asp-for="Province11Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã tỉnh lớp 12:</label>
-                                <select asp-for="Province12Id" class="form-control" asp-items="ViewBag.provinceList"></select>
+                                <select id="province3" asp-for="Province12Id" class="form-control" asp-items="ViewBag.provinceList"></select>
                                 <span asp-validation-for="Province12Id" class="text-danger"></span>
                             </div>
 
@@ -174,23 +209,22 @@
                                 <input asp-for="Sbd" class="form-control" />
                                 <span asp-validation-for="Sbd" class="text-danger"></span>
                             </div>
-                          
                         </div>
-                   
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 10: *</label>
-                                <select asp-for="School10Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school1" asp-for="School10Id" class="form-control"></select>
                                 <span asp-validation-for="School10Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mã trường lớp 11: *</label>
-                                <select asp-for="School11Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school2" asp-for="School11Id" class="form-control"></select>
                                 <span asp-validation-for="School11Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Mã trường lớp 12: * </label>
-                                <select asp-for="School12Id" class="form-control" asp-items="ViewBag.schoolList"></select>
+                                <select id="school3" asp-for="School12Id" class="form-control"></select>
                                 <span asp-validation-for="School12Id" class="text-danger"></span>
                             </div>
                             <div class="form-group">

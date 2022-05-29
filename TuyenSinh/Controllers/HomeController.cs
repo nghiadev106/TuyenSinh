@@ -43,5 +43,11 @@ namespace TuyenSinh.Controllers
             var ward = await _context.Wards.Where(x => x.DistrictId == id).ToListAsync();
             return Ok(ward);
         }
+
+        public async Task<IActionResult> GetSchool(int id)
+        {
+            var school = await _context.Schools.Where(x => x.ProvinceId == id).ToListAsync();
+            return Ok(school);
+        }
     }
 }
