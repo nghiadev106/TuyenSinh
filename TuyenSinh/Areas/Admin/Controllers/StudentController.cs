@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TuyenSinh.Areas.Admin.Models.Student;
 using TuyenSinh.Model;
 using TuyenSinh.Models;
 using TuyenSinh.Services;
@@ -49,7 +50,7 @@ namespace TuyenSinh.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Detail(DangKyHocBaModel model)
+        public IActionResult Detail(StudentViewModel model)
         {
             loadCategory();
             var s = _context.Students.Find(model.Id);
@@ -58,12 +59,13 @@ namespace TuyenSinh.Areas.Admin.Controllers
             if (res > 0)
             {
                 TempData["success"] = "Duyệt thành công";
+                return RedirectToAction("Index");
             }
             else
             {
                 TempData["error"] = "Duyệt thất bại";
+                return View(model);
             }
-            return View(model);
         }
     }
 }

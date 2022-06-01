@@ -100,12 +100,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số điện thoại</label>
-                                <input asp-for="Phone" class="form-control" />
+                                <input type="number" asp-for="Phone" class="form-control" />
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Email</label>
-                                <input asp-for="Email" class="form-control" />
+                                <input type="email" asp-for="Email" class="form-control" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
 
@@ -137,7 +137,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số CMND/CCCD: </label>
-                                <input asp-for="Cmnd" type="text" class="form-control" />
+                                <input asp-for="Cmnd" type="number" class="form-control" />
                                 <span asp-validation-for="Cmnd" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Số điện thoại</label>
-                                <input asp-for="ContactPhone" class="form-control" />
+                                <input type="number" asp-for="ContactPhone" class="form-control" />
                                 <span asp-validation-for="ContactPhone" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -202,7 +202,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Điểm tốt nghiệp</label>
-                                <input asp-for="Point" class="form-control" />
+                                <input type="number" min="0.00" max="30.00" step="0.01"  asp-for="Point" class="form-control" />
                                 <span asp-validation-for="Point" class="text-danger"></span>
                             </div> <div class="form-group">
                                 <label class="control-label">SBD kỳ thi THPT</label>
@@ -248,45 +248,45 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">TB môn toán:</label>
-                                <input asp-for="Math" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Math" class="form-control" />
                                 <span asp-validation-for="Math" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn văn:</label>
-                                <input asp-for="Literature" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Literature" class="form-control" />
                                 <span asp-validation-for="Literature" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn anh:</label>
-                                <input asp-for="English" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="English" class="form-control" />
                                 <span asp-validation-for="English" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">TB môn lý</label>
-                                <input asp-for="Physics" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Physics" class="form-control" />
                                 <span asp-validation-for="Physics" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">TB môn hóa</label>
-                                <input asp-for="Chemistry" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Chemistry" class="form-control" />
                                 <span asp-validation-for="Chemistry" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn sinh</label>
-                                <input asp-for="Biology" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Biology" class="form-control" />
                                 <span asp-validation-for="Biology" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">TB môn sử</label>
-                                <input asp-for="History" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="History" class="form-control" />
                                 <span asp-validation-for="History" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">TB môn địa</label>
-                                <input asp-for="Geography" type="number" class="form-control" />
+                                <input type="number" min="0.00" max="10.00" step="0.01"  asp-for="Geography" type="number" class="form-control" />
                                 <span asp-validation-for="Geography" class="text-danger"></span>
                             </div>
                         </div>
@@ -348,12 +348,12 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input asp-for="Point1" type="number" class="form-control" />
+                                <input asp-for="Point1" type="number" min="0.00" max="30.00" step="0.01"  class="form-control" />
                                 <span asp-validation-for="Point1" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input asp-for="Point2" type="number" class="form-control" />
+                                <input asp-for="Point2" type="number" min="0.00" max="30.00" step="0.01"  class="form-control" />
                                 <span asp-validation-for="Point2" class="text-danger"></span>
                             </div>
                         </div>

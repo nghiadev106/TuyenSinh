@@ -60,7 +60,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\Student\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 

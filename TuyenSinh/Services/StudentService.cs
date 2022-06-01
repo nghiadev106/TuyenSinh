@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using TuyenSinh.Areas.Admin.Models.Student;
 using TuyenSinh.Model;
 using TuyenSinh.Models;
 
@@ -15,7 +16,7 @@ namespace TuyenSinh.Services
     {
         Task<int> DangKyHocBa(DangKyHocBaModel request);
         Task<int> DangKyTHPT(DangKyTHPTModel request);
-        Task<DangKyTHPTModel> Detail(int id);
+        Task<StudentViewModel> Detail(int id);
         Task<List<Student>> GetAll();
     }
     public class StudentService : IStudentService
@@ -230,7 +231,7 @@ namespace TuyenSinh.Services
             }
         }
 
-        public async Task<DangKyTHPTModel> Detail(int id)
+        public async Task<StudentViewModel> Detail(int id)
         {
             try
             {
@@ -239,7 +240,7 @@ namespace TuyenSinh.Services
                 InfoThpt info = await _context.InfoThpts.Where(x => x.StudentId == id).FirstOrDefaultAsync();
                 Wish wish = await _context.Wishes.Where(x => x.StudentId == id).FirstOrDefaultAsync();
 
-                DangKyTHPTModel detail = new DangKyTHPTModel()
+                StudentViewModel detail = new StudentViewModel()
                 {
                     Id = s.Id,
                     Name = s.Name,

@@ -1370,8 +1370,9 @@ D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Major\Index.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Student\Detail.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Student\Index.cshtml.g.cs
-D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\Create.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\DangKy\TraCuu.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\TuyenSinh.csprojAssemblyReference.cache
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\DangKy\Search.cshtml.g.cs
 D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Areas\Admin\Views\Statistic\Index.cshtml.g.cs
+D:\nghia\DoAnTotNghiep2022\Mai\TuyenSinh\TuyenSinh\obj\Debug\net5.0\Razor\Views\Question\DatCauHoi.cshtml.g.cs

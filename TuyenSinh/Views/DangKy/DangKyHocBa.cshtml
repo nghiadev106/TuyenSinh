@@ -9,7 +9,7 @@
 <input type="hidden" id="error" value="@TempData["error"]" />
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-        $("#province1").on("change", function () {
+        function getSchool1() {
             var id = $("#province1").val();
             $.ajax({
                 url: "/Home/GetSchool",
@@ -24,9 +24,8 @@
                     alert(e);
                 }
             });
-        });
-
-        $("#province2").on("change", function () {
+        }
+        function getSchool2() {
             var id = $("#province2").val();
             $.ajax({
                 url: "/Home/GetSchool",
@@ -41,9 +40,9 @@
                     alert(e);
                 }
             });
-        });
+        }
 
-        $("#province3").on("change", function () {
+        function getSchool3() {
             var id = $("#province3").val();
             $.ajax({
                 url: "/Home/GetSchool",
@@ -58,6 +57,26 @@
                     alert(e);
                 }
             });
+        }
+
+        function init() {
+            getSchool1();
+            getSchool2();
+            getSchool3();
+        }
+
+        init();
+
+        $("#province1").on("change", function () {
+            getSchool1();
+        });
+
+        $("#province2").on("change", function () {
+            getSchool2();
+        });
+
+        $("#province3").on("change", function () {
+            getSchool3();
         });
     });
 </script>
@@ -323,12 +342,12 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Point1" class="form-control" />
+                                <input type="number" min="0.00" max="30.00" step="0.01" asp-for="Point1" class="form-control" />
                                 <span asp-validation-for="Point1" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tổng điểm: </label>
-                                <input type="number" min="0.00" max="10.00" step="0.01" asp-for="Point2" class="form-control" />
+                                <input type="number" min="0.00" max="30.00" step="0.01" asp-for="Point2" class="form-control" />
                                 <span asp-validation-for="Point2" class="text-danger"></span>
                             </div>
                         </div>

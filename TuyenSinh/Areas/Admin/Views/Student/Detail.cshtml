@@ -1,4 +1,4 @@
-﻿@model TuyenSinh.Models.DangKyTHPTModel
+﻿@model TuyenSinh.Areas.Admin.Models.Student.StudentViewModel
 
 @{
     ViewData["Title"] = "DangKyHocBa";
@@ -371,12 +371,14 @@
                                             <span asp-validation-for="Status" class="text-danger"></span>
                                         </div>
                                     </div>
-
-                                    <div class="col-12 col-md-12">
-                                        <div class="form-group" style="display: flex; align-items: center; justify-content: center; margin-top: 25px; }">
-                                            <input type="submit" value="Xác nhận" class="btn btn-primary" />
+                                    @if (Model.Status == 0)
+                                    {
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group" style="display: flex; align-items: center; justify-content: center; margin-top: 25px; }">
+                                                <input type="submit" value="Xác nhận" class="btn btn-primary" />
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 </div>
                             </form>
                         </div>

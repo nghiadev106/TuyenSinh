@@ -101,6 +101,19 @@ namespace TuyenSinh
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                name: "admin",
+                pattern: "admin", new
+                {
+                    area = "Admin",
+                    controller = "User",
+                    action = "Login"
+                });
+
+                endpoints.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
 
                 endpoints.MapControllerRoute(
                name: "question",
@@ -109,6 +122,14 @@ namespace TuyenSinh
                    controller = "Question",
                    action = "Index"
                });
+
+                endpoints.MapControllerRoute(
+              name: "question",
+              pattern: "dat-cau-hoi", new
+              {
+                  controller = "Question",
+                  action = "DatCauHoi"
+              });
 
                 endpoints.MapControllerRoute(
                 name: "question detail",
@@ -142,19 +163,7 @@ namespace TuyenSinh
                    action = "ListBlogCategories"
                });
 
-                endpoints.MapControllerRoute(
-                name: "admin",
-                pattern: "admin" ,new
-                {
-                    area="Admin",
-                    controller = "User",
-                    action = "Login"
-                });
-
-                endpoints.MapControllerRoute(
-                name: "areas",
-                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+            
 
                 endpoints.MapControllerRoute(
                 name: "default",

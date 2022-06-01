@@ -13,9 +13,19 @@
             </nav>
         </div>
         <div class="row">
+            <div class="col-sm-12">
+                <div id="toTop"></div>
+                <a href="/dat-cau-hoi" style="text-align:right;color:blue;">
+                    <h4>ĐẶT CÂU HỎI</h4>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-lg-12 col-sm-12">
                 <div id="divListNews">
-                    @if (Model.Items.Count()> 0)
+                    @if (Model.Items.Count() > 0)
                     {
                         foreach (var item in Model.Items)
                         {
@@ -99,44 +109,4 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-    </div>
-
-
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "1759613197403378");
-        chatbox.setAttribute("attribution", "biz_inbox");
-
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v11.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <script>DevExpress.aspnet.setTemplateEngine();</script><div id="dxPopupLoading"></div>
-    <script type="text/html" id="dxPopupLoading-contentTemplate">
-        <h2 style="text-align:center">Hệ thống đang xử lý.<br />Vui lòng đợi trong giây lát</h2>
-        <div id="loader" class="loader"></div>
-    </script>
-    <script>jQuery(function ($) { $("#dxPopupLoading").dxPopup({ "elementAttr": { "class": "popup" }, "width": 600.0, "height": 225.0, "showTitle": false, "visible": false, "dragEnabled": false, "closeOnOutsideClick": false, "contentTemplate": $("#dxPopupLoading-contentTemplate") }); });</script>
-</div>

@@ -38,12 +38,13 @@ namespace TuyenSinh.Controllers
             };
             return View(paginationSet);
         }
-        public IActionResult Create()
+        public IActionResult DatCauHoi()
         {
             return View();
         }
 
-        public IActionResult Create(QuestionViewModel request)
+        [HttpPost]
+        public IActionResult DatCauHoi(QuestionViewModel request)
         {
             var model = new Question()
             {
@@ -53,8 +54,15 @@ namespace TuyenSinh.Controllers
                 Status = 2
             };
             _context.Questions.Add(model);
-            var res=_context.SaveChanges();        
-            return View(res);
+            var res=_context.SaveChanges();
+            if (res > 0)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(request);
+            }
         }
 
         public async Task<IActionResult> Detail(int id)

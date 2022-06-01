@@ -33,7 +33,7 @@ namespace TuyenSinh.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest request,string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/admin/news/index");
+            returnUrl ??= Url.Content("~/admin/dashboard/index");
               // Đã đăng nhập nên chuyển hướng về Index
             if (_signInManager.IsSignedIn(User))
             {
